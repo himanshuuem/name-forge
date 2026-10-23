@@ -1,0 +1,39 @@
+<%- include("partials/head", { title: forges[type].label + " names" }) %>
+<main class="forge" data-type="<%= type %>">
+  <section class="intro">
+    <h1>Forge a <span><%= forges[type].label.toLowerCase() %></span> name</h1>
+    <p><%= forges[type].tagline %></p>
+  </section>
+
+  <form class="forge-form" method="post" action="/forge">
+    <fieldset class="types">
+      <legend class="visually-hidden">What are you naming?</legend>
+      <% forgeKeys.forEach((key) => { %>
+        <label class="type <%= key === type ? 'active' : '' %>">
+          <input type="radio" name="type" value="<%= key %>" <%= key === type ? "checked" : "" %>>
+          <span class="emoji" aria-hidden="true"><%= forges[key].emoji %></span>
+          <%= forges[key].label %>
+        </label>
+      <% }) %>
+    </fieldset>
+    <button type="submit" class="forge-btn"><%= names.length ? "Forge again" : "Strike the anvil" %> 🔨</button>
+  </form>
+
+  <% if (names.length) { %>
+    <section class="results" aria-live="polite">
+      <ul class="names">
+        <% names.forEach((name, i) => { %>
+          <li style="--i: <%= i %>">
+            <span class="name"><%= name %></span>
+            <button type="button" class="copy" data-copy="<%= name %>" aria-label="Copy <%= name %>">Copy</button>
+          </li>
+        <% }) %>
+      </ul>
+      <p class="share">
+        Seed <code><%= seed %></code>. This link always forges the same names:
+        <button type="button" class="copy link" data-copy="<%= shareUrl %>">Copy share link</button>
+      </p>
+    </section>
+  <% } %>
+</main>
+<%- include("partials/footer") %>

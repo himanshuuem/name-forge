@@ -1,0 +1,9 @@
+<%- include("partials/head", { title: "Not found" }) %>
+<main class="forge">
+  <section class="intro">
+    <h1>Nothing <span>forged</span> here</h1>
+    <p><%= typeof message !== "undefined" ? message : "That page doesn't exist." %></p>
+    <p><a href="/" class="forge-btn">Back to the anvil</a></p>
+  </section>
+</main>
+<%- include("partials/footer") %>
