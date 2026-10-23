@@ -2,6 +2,8 @@
 
 > A server-rendered name generator for **bands**, **startups** and **fantasy taverns**, built with Express and EJS. Every result has a shareable link that always forges the same names.
 
+**🔗 Live demo:** https://name-forge.onrender.com/ *(free tier: the first visit after idle takes ~30–60s to wake up)*
+
 [![test](https://github.com/himanshuuem/name-forge/actions/workflows/test.yml/badge.svg)](https://github.com/himanshuuem/name-forge/actions/workflows/test.yml)
 ![Express](https://img.shields.io/badge/Express-5-000?logo=express)
 ![EJS](https://img.shields.io/badge/EJS-templates-B4CA65?logo=ejs&logoColor=black)
